@@ -1,0 +1,118 @@
+﻿@page
+@model WebAppComics.Pages.User.cartTextModel
+@using WebAppComics.Models
+
+@{
+
+    ViewData["Title"] = "Category";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+    }
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a asp-area="" asp-page="./Index"> <i class="fa fa-home"></i>Trang chủ</a>
+                    <a href="#">Theo dõi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    @*@if (Request.Cookies["comics"] != null)
+    {
+        ComicReadWebsiteContext db = new ComicReadWebsiteContext();
+        string text = Request.Cookies["comics"];
+        string[] words = text.Split(' ');
+        for (int i = 0; i< words.Length; i++)
+        {
+            var comic = db.Comics.FirstOrDefault(s => s.ComicId.ToString() == words[i]);
+            if (comic != null)
+            {
+                @*<div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-img"><img src="@comic.ComicBanner"/></div>
+                        <div class="card-body">
+                            <a class="nav-link text-dark" asp-area="" asp-page="../DetailComic/Index" asp-route-id="@comic.ComicId">@comic.ComicName</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+
+                    <div class="product__item">
+                        <a asp-page="./Details" asp-route-id="@comic.ComicId">
+                            <div class="product__item__pic set-bg" >
+                            <img src="@comic.ComicBanner">
+                                <div class="comment"><i class="fa fa-comments"></i> @comic.DateSummitted</div>
+                                <div class="view"><i class="fa fa-eye"></i> @comic.ComicStatus</div>
+                            </div>
+                        </a>
+                        <div class="product__item__text">
+                            <ul>
+                                <li>Active</li>
+                                <li>Movie</li>
+                            </ul>
+                            <h5><a href="#">@comic.ComicName</a></h5>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        }
+    }*@
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="trending__product">
+
+                    <div class="row">
+                        @if (Request.Cookies["comics"] != null)
+                        {
+                            ComicReadWebsiteContext db = new ComicReadWebsiteContext();
+                            string text = Request.Cookies["comics"];
+                            string[] words = text.Split(' ');
+                            for (int i = 0; i < words.Length; i++)
+                            {
+                                var comic = db.Comics.FirstOrDefault(s => s.ComicId.ToString() == words[i]);
+                                if (comic != null)
+                                {
+                                    @*<div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                        <div class="card">
+                        <div class="card-img"><img src="@comic.ComicBanner"/></div>
+                        <div class="card-body">
+                        <a class="nav-link text-dark" asp-area="" asp-page="../DetailComic/Index" asp-route-id="@comic.ComicId">@comic.ComicName</a>
+                        </div>
+                        </div>
+                        </div>
+                        </div>*@
+                                    <div class="col-lg-3 col-md-6 col-sm-6">
+
+                                        <div class="product__item">
+                                            <a asp-page="./Details" asp-route-id="@comic.ComicId">
+                                                <div class="product__item__pic" style=" background-image: url(@comic.ComicBanner); background-repeat: no-repeat;background-size: cover; background-position: top center;">
+                                                    <div class="comment"><i class="fa fa-clock-o"></i> @comic.DateSummitted</div>
+                                                    <div class="view"> @comic.ComicStatus</div>
+                                                </div>
+                                            </a>
+                                            <div class="product__item__text">
+                                                <h5><a href="#">@comic.ComicName</a></h5>
+                                                @*<a asp-page="cartText" asp-page-handler="Delete" asp-route-id="@comic.ComicId">Bỏ theo dõi</a>*@
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

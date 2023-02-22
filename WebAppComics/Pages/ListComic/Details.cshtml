@@ -1,0 +1,184 @@
+﻿@page
+@model WebAppComics.Pages.ManageComic.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+   
+  
+
+}
+
+@*<h1>Details</h1>
+
+   @foreach (var i in Model.Chapters){
+       <li>@i.ChapterName</li>
+   }
+   
+
+<div>
+    <h4>Comic</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comic.ComicName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comic.ComicName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comic.Describe)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comic.Describe)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comic.ComicBanner)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Model.Comic.ComicBanner" height="100" width="100" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comic.DateSummitted)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comic.DateSummitted)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comic.Rating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comic.Rating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comic.ComicStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comic.ComicStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comic.Account)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comic.Account.AccountId)
+        </dd>
+    </dl>
+</div>
+
+
+    
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Comic?.ComicId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+*@
+<section class="anime-details spad">
+    <div class="container">
+        <div class="anime__details__content">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="anime__details__pic "style="background-image: url(@Model.Comic.ComicBanner); background-repeat: no-repeat;background-size: cover; background-position: top center;">
+                       <img src ="@Model.Comic.ComicBanner" />
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="anime__details__text">
+                        <div class="anime__details__title">
+                           
+                            <h3>@Model.Comic.ComicName</h3>
+                            @{
+                                string a = Model.Comic.ComicName.ToString();
+                                    @inject IHttpContextAccessor HttpContextAccessor
+                                HttpContextAccessor.HttpContext.Session.SetString("b", a);
+                            }
+                            <span></span>
+                        </div>
+                         @{
+                                string ma = Model.Comic.ComicId.ToString();
+                                    @inject IHttpContextAccessor HttpContextAccessor
+                                HttpContextAccessor.HttpContext.Session.SetString("ma", ma);
+                            }
+                        <p>
+                           @Model.Comic.Describe
+                        </p>
+                        <div class="anime__details__widget">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                       
+                                        <li><span>Date aired:</span> @Model.Comic.DateSummitted.Value.ToString("dd/MM/yyyy")</li>
+                                        <li><span>Status:</span> @Model.Comic.ComicStatus</li>
+                                        <li><span>Genre:</span> </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li><span>Rating:</span> @Model.Comic.Rating</li>
+                                        <li><span></span> 8.5 / 161 times</li>
+                                        <li><span>Duration:</span> 24 min/ep</li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="anime__details__btn">
+
+                                 
+                                    <a href="../ListChapter/Index" class="watch-btn">
+                                        <span>Thêm chương mới!</span> <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+                <div class="anime__details__review">
+                    <div class="section-title">
+                        <h5>Danh sách Chapter</h5> @*<a asp-page="./Edit" asp-route-id="#">
+                            <p style="border:solid 2px; background-color: forestgreen; border-radius:10%; color: white; text-align:center;">Thêm</p></a>*@
+                       
+
+                        @*<a asp-page="./ListChapter/Edit" asp-route-id="@item"> as</a>*@
+                    
+                       
+                    </div>
+                    @foreach (var i in Model.Chapters)
+                    {
+                        <div class="anime__review__item">
+
+                        </div>
+
+
+                        <div class="anime__review__item">
+
+                            <div class="anime__review__item__text">
+                                
+                                <a>
+
+                                    <h6>@i.ChapterName <span> @i.UpdateDay.Value.Date.ToString("dd/ MM /yyyy") </span></h6>
+                                    <div>
+                                        <a href="../ListImage/List" style=" border:solid 1px; background-color: #fd7e14; border-radius:10%; color: white; text-align:center">Sửa</a>
+                                    </div>
+                                    
+                                    @{
+                                            @inject IHttpContextAccessor HttpContextAccessor
+                                        var chuong =i.ChapterId.ToString();
+                                        //var sochuong = i.ChapterName;
+
+                                        HttpContextAccessor.HttpContext.Session.SetString("ma", chuong);
+                                        //HttpContextAccessor.HttpContext.Session.SetString("ten", sochuong.ToString());
+                                    }
+                                </a>
+                        </div>
+                    </div>
+                    }
+                  
+               
+            </div>
+          
+        </div>
+    </div>
+</section>

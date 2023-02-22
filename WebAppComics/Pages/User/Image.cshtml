@@ -1,0 +1,95 @@
+﻿@page
+@using WebAppComics.Models
+@model WebAppComics.Pages.User.ListCategory.ListImageModel
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ComicReadWebsiteContext _context = new Models.ComicReadWebsiteContext();
+    ViewData["Title"] = "ListImage";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+   
+    var chapter = (from comment in _context.Comments
+                   join ch in _context.Chapters on comment.ChapterId equals ch.ChapterId
+                   join acc in _context.Accounts on comment.AccountId equals acc.AccountId
+                     select new { ch.ChapterId,comment.CommnentContent, comment.Date,ch.ChapterName, acc.AccountName, acc.AccountImage })
+                   .ToList();
+   
+
+}
+
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="#"><i class="fa fa-home"></i> Trang chủ</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="anime-details spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="anime__video__player" style="text-align:center">
+                    @foreach (var item in Model.Image)
+                    {
+                        <img src="@item.ImageUrl"  />
+                       HttpContextAccessor.HttpContext.Session.SetString("ma1" ,(item.ChapterId).ToString() );
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="anime__details__review">
+                    <div class="section-title">
+                        <h5>Reviews</h5>
+                    </div> 
+                    @foreach(var item in chapter )
+                    {
+                        if ( HttpContextAccessor.HttpContext.Session.GetString("ma1") == item.ChapterId.ToString())
+                        {
+                    <div class="anime__review__item">
+                       
+                        <div class="anime__review__item__pic">
+                            <img src="@item.AccountImage" alt="">
+
+                        </div>
+                        <div class="anime__review__item__text">
+                            <h6>@item.AccountName - <span> @item.Date</span></h6>
+                            <p>
+                                @item.CommnentContent
+                            </p>
+                            </div>
+                        
+                            </div>
+                        
+                        }
+                    }
+
+
+
+
+                    @{var a = HttpContextAccessor.HttpContext.Session.GetString("ma1");}
+                    
+                
+                <div class="anime__details__form">
+                    <div class="section-title">
+                        <h5>Your Comment</h5>
+                    </div>
+                     <form method="post">
+                            <textarea  name="commentcontent" placeholder="Your Comment" asp-for="CommentBonus.CommnentContent" required></textarea>
+                        <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+         
+                     </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@await Component.InvokeAsync("NToastNotify");
+
+

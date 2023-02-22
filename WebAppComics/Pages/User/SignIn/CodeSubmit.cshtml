@@ -1,0 +1,47 @@
+﻿@page
+@model WebAppComics.Pages.SignIn.CodeSubmitModel
+@{
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+}
+<section class="normal-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="normal__breadcrumb__text">
+                    <h2>Quên mật khẩu</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="login spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login__form">
+                    <h3>Nhận mã OTP!</h3>
+                    <form method="get">
+                        <div class="input__item">
+                            <input type="text" placeholder="Email" name="otpcheckview1">
+                            <span class="icon_mail"></span>
+                        </div>
+                        <input type="submit" value="Xác nhận" class="site-btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*<form method="get">
+    <div class="form-group">
+        <tr>
+            @ViewData["checkemail"]
+            <td>Mã OTP xác nhận</td>
+             <td>
+                <input type="text" name="otpcheckview1" />
+            </td>
+        </tr>
+        <br />    
+        <input type="submit" class="btn btn-primary" value="Xác nhận" />
+    </div>
+</form>*@

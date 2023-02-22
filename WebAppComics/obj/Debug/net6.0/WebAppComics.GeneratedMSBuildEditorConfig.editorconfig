@@ -1,0 +1,196 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WebAppComics
+build_property.RootNamespace = WebAppComics
+build_property.ProjectDir = D:\WebAppComics\WebAppComics\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = D:\WebAppComics\WebAppComics
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/WebAppComics/WebAppComics/Pages/404.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcNDA0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/CreateChapter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlQ2hhcHRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListAccount/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdEFjY291bnRcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListAccount/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdEFjY291bnRcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListAccount/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdEFjY291bnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListChapter/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdENoYXB0ZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListChapter/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdENoYXB0ZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListChapter/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdENoYXB0ZXJcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListChapter/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdENoYXB0ZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListComic/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdENvbWljXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListComic/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdENvbWljXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListComic/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdENvbWljXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListComic/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdENvbWljXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListComic/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdENvbWljXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListImage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdEltYWdlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListImage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdEltYWdlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/ListImage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdEltYWdlXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/Shared/_LayoutUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/Shared/_partiviewTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9wYXJ0aXZpZXdUZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/cartText.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxjYXJ0VGV4dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/Category.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxDYXRlZ29yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/CategoryAct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxDYXRlZ29yeUFjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/ComicSearch/ComicSearch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxDb21pY1NlYXJjaFxDb21pY1NlYXJjaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/CreateChapter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxDcmVhdGVDaGFwdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/Darama.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxEYXJhbWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/Fantasy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxGYW50YXN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/Horrorstory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxIb3Jyb3JzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/Humor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxIdW1vci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/Image.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxJbWFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/Romantic.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxSb21hbnRpYy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/Shounen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxTaG91bmVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/SignIn/CodeSubmit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxTaWduSW5cQ29kZVN1Ym1pdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/SignIn/forgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxTaWduSW5cZm9yZ290UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/SignIn/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxTaWduSW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/SignIn/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxTaWduSW5cUmVzZXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/SignIn/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxTaWduSW5cU2lnblVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/User/User_Test.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclxVc2VyX1Rlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/WebAppComics/WebAppComics/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

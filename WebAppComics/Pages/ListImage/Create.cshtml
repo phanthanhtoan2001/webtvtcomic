@@ -1,0 +1,51 @@
+﻿@page
+@model WebAppComics.Pages.ListImage.CreateModel
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+  
+    var chaptername = HttpContextAccessor.HttpContext.Session.GetString("ChapterName");
+    var chapterid = HttpContextAccessor.HttpContext.Session.GetString("ChapterId");
+
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<h3 style="color:white; font-family:'Oswald'">THÊM HÌNH CHO TRUYỆN @chaptername</h3>
+
+<form method="post" id="myForm" class="mt-3" style="color: white; width:fit-content;  height: 400px;">
+  
+  
+ 
+    <div class="form-group">
+        <label asp-for="ImageBonus.ChapterId" class="control-label"></label>
+        <input asp-for="ImageBonus.ChapterId" class="form-control" value="@chapterid"  hidden/>
+        <span asp-validation-for="ImageBonus.ChapterId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label"> image </label>
+        <input type="text" id="countFile" value="40" / hidden>
+        <input type="text" class="form-control" id="domain" asp-for="ImageBonus.ImageUrl" />
+    </div>
+    <div class="mb-3">
+        <input type="file" id="fileupload" multiple>
+
+        <script src="~/js/test1.js"></script>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn-danger">
+            update
+        </button>
+
+    </div>
+
+</form>
+<script>
+    $(document).ready(function () {
+        $('#fileupload').change(function () {
+            var files = $(this)[0].files;
+            document.getElementById("countFile").value = files.length;
+        });
+    });
+</script>
+

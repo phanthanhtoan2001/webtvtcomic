@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Http
+@using WebAppComics.Models
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    string accountname = HttpContextAccessor.HttpContext.Session.GetString("AccountName");
+    var accountadmin = HttpContextAccessor.HttpContext.Session.GetString("AccountNameadmin");
+    
+     //   HttpContextAccessor.HttpContext.Session.Remove("Accountadmin");
+}
+<ul class="navbar-nav" style="display: inline-block">
+    @if (accountname != null)
+        {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-page="./ListAccount/Details" title="Manage" style="color:white!important">@accountname </a>
+            </li>
+        <li class="nav-item" >
+                <form class="form-inline" asp-area="" asp-page="./SignIn/Login">
+                    <button type="submit" class="nav-link btn btn-link text-light">Đăng xuất</button>
+                </form>
+            </li>
+        
+      
+        }
+
+
+    else if (accountadmin != null)
+    {
+        <li class="nav-item" >
+            <a class="nav-link text-dark" asp-area="" asp-page="" title="Manage" style="color:white!important">@accountadmin </a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="" asp-page="./SignIn/Login">
+                <button type="submit" class="nav-link btn btn-link text-light">Đăng xuất</button>
+            </form>
+        </li>
+      
+    }
+        else
+
+        {           
+        @*            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="SignUp" asp-page="./SignUp/Create">Register</a>
+            </li>*@
+            <li class="nav-item" >
+                <a class="nav-link text-dark" asp-area="SignIn" asp-page="./SignIn/Login" style="color:white!important">Đăng nhập</a>
+            </li>
+        
+        }
+    </ul>

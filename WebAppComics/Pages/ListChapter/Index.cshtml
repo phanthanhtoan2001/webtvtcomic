@@ -1,0 +1,52 @@
+﻿@page
+@model WebAppComics.Pages.ListChapter.IndexModel
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+    string a = HttpContextAccessor.HttpContext.Session.GetString("b");
+}
+
+<h2 style="color:white; font-family:'Oswald'">QUẢN LÝ CHAPTER TRUYỆN: @a</h2>
+@await Component.InvokeAsync("NToastNotify");
+<a href="./Create">
+    <p style="border:solid 2px; background-color: #fd7e14; border-radius:10%; color: white; text-align:center; width: 15%"> Tạo chương mới</p>
+</a>
+<table class="table" style="color: white">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapter[0].ChapterName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapter[0].UpdateDay)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Chapter) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChapterName)
+            </td>
+
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateDay)
+            </td>
+            <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ChapterId">
+                        <p style="border:solid 2px; background-color: forestgreen; border-radius:10%; color: white; text-align:center">Sửa</p>
+                    </a>
+                    <a asp-page="./Details" asp-route-id="@item.ChapterId">
+                        <p style="border:solid 2px; background-color: cornflowerblue; border-radius:10%; color: white; text-align:center">Chi tiết</p>
+                        </a>
+                  
+                   
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

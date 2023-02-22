@@ -1,0 +1,43 @@
+﻿@page
+@model WebAppComics.Pages.ListChapter.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="color:white; font-family:'Oswald'">CHI TIẾT CHƯƠNG</h2>
+@await Component.InvokeAsync("NToastNotify");
+<div>
+    
+    <dl class="row" style="color: white">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chapter.ChapterName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chapter.ChapterName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chapter.View)
+        </dt>
+        <dd class="col-sm-10" style="rea">
+           @* @Html.DisplayFor(model => model.Chapter.View)*@ <input type="text" value="@Model.Chapter.View" readonly></input>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chapter.UpdateDay)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chapter.UpdateDay)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chapter.Comic)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chapter.Comic.ComicName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Chapter?.ChapterId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

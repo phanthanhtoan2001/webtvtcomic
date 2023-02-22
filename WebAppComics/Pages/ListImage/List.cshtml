@@ -1,0 +1,43 @@
+﻿@page
+@model WebAppComics.Pages.ListImage.ListModel
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+     var a = HttpContextAccessor.HttpContext.Session.GetString("sochuong");
+}
+
+<h2 style="color:white; "> @a</h2>
+
+
+
+
+<p>
+    <a asp-page="Create"><p style="border:solid 2px; background-color: #fd7e14; border-radius:10%; color: white; text-align:center; width: 15%"> Tạo mới</p></a>
+     
+</p>
+<table class="table" style="color: white">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image[0].ImageUrl)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Image) {
+        <tr>
+            <td>
+               <img src="@item.ImageUrl" style="width:200px; height:300px" >
+            </td>
+            <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ImageId">
+                        <p style="border:solid 2px; background-color: forestgreen; border-radius:10%; color: white; text-align:center">Sửa</p>
+                    </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

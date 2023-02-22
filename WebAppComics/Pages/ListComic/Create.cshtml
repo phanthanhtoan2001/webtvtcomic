@@ -1,0 +1,68 @@
+﻿@page
+@model WebAppComics.Pages.ManageComic.CreateModel
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Create";
+   
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+    var id = HttpContextAccessor.HttpContext.Session.GetString("Id");
+
+}
+
+<h2 style="color:white; font-family:'Oswald'">ĐĂNG TRUYỆN</h2>
+
+<form method="post" class="mt-3" style="color: white; width:fit-content">
+  
+    
+    <div class="mb-3">
+        <label class="form-label"> Name </label>
+        <input type="text" class="form-control" asp-for="ComicBonus.ComicName"/>
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label"> Describe </label>
+        <input type="text" class="form-control" asp-for="ComicBonus.Describe" />
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label"> Banner </label>
+        <input type="text" class="form-control" asp-for="ComicBonus.ComicBanner" id="domain" hidden />
+        <img src="" width="100" height="100" id="image" />
+
+    </div>
+    <div class="mb-3">
+        <input type="file" id="fileupload">
+    @*    <img src="@Model.ComicBonus.ComicBanner" width="100" height="100" id="image" />*@
+        <script src="~/js/Upload.js"></script>
+        @*   <script src="~/js/test.js"></script>*@
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label"> Date </label>
+        <input type="text"  class="form-control" asp-for="ComicBonus.DateSummitted" value="@DateTime.Now.ToString("dd/MM/yyyy")" readonly />
+
+    </div>
+   
+    <div class="mb-3">
+        <label class="form-label"> rating </label>
+        <input type="text" class="form-control" asp-for="ComicBonus.Rating" value="0" hidden />
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label"> Status </label>
+        <input type="text" class="form-control" asp-for="ComicBonus.ComicStatus" value="Đang tiến hành" readonly />
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label"> AccountId </label>
+        <input type="text" class="form-control" asp-for="ComicBonus.AccountId"  value="@id" hidden/>
+
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn-danger">
+            Save
+        </button>
+
+    </div>
+
+</form>

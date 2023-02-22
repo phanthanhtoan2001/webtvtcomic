@@ -1,0 +1,84 @@
+﻿@page
+@*@model WebAppComics.Pages.User.CategoryModel*@
+@using WebAppComics.Models;
+
+@{
+
+    ViewData["Title"] = "Category";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+    ComicReadWebsiteContext _context = new ComicReadWebsiteContext();
+    string a = "Darama";
+    var list = (from c in _context.Comics
+                join comicca in _context.ComicCategories
+                on c.ComicId equals comicca.ComicId
+                join ca in _context.Categories
+                on comicca.CategoryId equals ca.CategoryId
+                join ch in _context.Chapters
+                on c.ComicId equals ch.ComicId
+
+                orderby c.Rating, c.DateSummitted descending
+
+                select new { c.ComicName, c.ComicId, c.ComicBanner, ca.CategoryName, ch.ChapterId, c.DateSummitted, c.ComicStatus }).ToList();
+    var dislist = list.DistinctBy(i => i.ComicName).Where(i => i.CategoryName.Equals(a)); ;
+    //var dislist1 = list.Where(i => i.CategoryName.Equals(a));
+
+}
+
+
+
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a asp-area="" asp-page="./Index"> <i class="fa fa-home"></i>Trang chủ</a>
+                    <a href="#">Thể loại</a>
+                    <span>Hành động</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="trending__product">
+
+                    <div class="row">
+                        @foreach (var item in dislist)
+                        {
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+
+                                <div class="product__item">
+                                    <a asp-page="./Details" asp-route-id="@item.ComicId">
+                                        <div class="product__item__pic" style="background-image: url(@item.ComicBanner); background-repeat: no-repeat;background-size: cover; background-position: top center;">
+                                            @*<img src="@item.ComicBanner">*@
+
+                                            <div class="comment"><i class="fa fa-clock-o"></i> @item.DateSummitted</div>
+                                            <div class="view"> @item.ComicStatus</div>
+                                        </div>
+                                    </a>
+                                    <div class="product__item__text">
+                                        <h5><a asp-page="./Details" asp-route-id="@item.ComicId">@item.ComicName</a></h5>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+﻿@page
+@*@model WebAppComics.Pages.User.CategoryModel*@
+@using WebAppComics.Models;
+
+@{
+
+    //ViewData["Title"] = "Category";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+    ComicReadWebsiteContext _context = new ComicReadWebsiteContext();
+  
+    var list = (from c in _context.Comics
+                join comicca in _context.ComicCategories
+                on c.ComicId equals comicca.ComicId
+                join ca in _context.Categories
+                on comicca.CategoryId equals ca.CategoryId
+                join ch  in _context.Chapters 
+                on c.ComicId equals ch.ComicId
+
+                orderby c.Rating, c.DateSummitted descending
+               
+                select new { c.ComicName,c.ComicId, c.ComicBanner, ca.CategoryName , ch.ChapterId}).ToList();
+                  var dislist = list.DistinctBy(i => i.ComicName); 
+    //var dislist1 = list.Where(i => i.CategoryName.Equals(a));
+
+}
+
+
+            @foreach(var item in dislist)
+            {
+                <a asp-page="./Details" asp-route-id="@item.ComicId">
+                <img src="@item.ComicBanner">
+                
+                <li> @item.ComicName</li>
+              
+                </a>
+            }
+
+
+    
+
+
+
+

@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] TVTComics</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ComicWebsite.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/20.3.56/fluent.css" />
+    <script src="https://cdn.syncfusion.com/ej2/20.3.56/dist/ej2.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="~/css/plyr.css" type="text/css">
+    <link rel="stylesheet" href="~/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/style.css" type="text/css">
+</head>
+ @{
+    //@inject IHttpContextAccessor HttpContextAccessor
+    //var indentity = HttpContextAccessor.HttpContext.Session.GetString("Accountcauser").ToString();
+ }
+<body>
+@*    <div id="preloder">
+        <div class="loader"></div>
+    </div>*@
+
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a asp-area="" asp-page="/User/Index" style="margin-top: 20px">
+                            <span style="font-weight:bold; font-size: 40px">TVT</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav" style="padding-top: 16px">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li ><a asp-area="" asp-page="/User/Index">Trang chủ</a></li>
+                                <li>
+                                    <a asp-area="" >Thể loại <span class="arrow_carrot-down"></span></a>
+                                    <ul class="dropdown">
+                                        <li><a asp-page="./CategoryAct"> Hành động</a></li>
+                                        <li><a asp-page="./Darama"> Drama</a></li>
+                                        <li><a asp-page="./Fatasy"> Viễn tưởng</a></li>
+                                        <li><a asp-page="./Horrorstory"> Kinh dị</a></li>
+                                        <li><a asp-page="./Romantic"> Ngôn tình</a></li>
+                                        <li><a asp-page="./Shounen"> Shounen</a></li>
+                                        <li><a asp-page="./Hummor"> Hài hước</a></li>
+                                        <li><a asp-page="./Shounen"> Shounen</a></li>
+                                    </ul>
+                                </li>
+                                <li><a asp-area="" asp-page="/User/cartText">Theo dõi</a></li>
+                              @*  <li><a asp-area="" asp-page="/User/ComicSearch/ComicSearch">Tìm kiếm truyện</a></li>*@
+                                @{
+                                                 @inject IHttpContextAccessor HttpContextAccessor
+                                                @if (HttpContextAccessor.HttpContext.Session.GetString("Accountcauser")== "1")
+                                  
+                                    {
+                                                    <li style="display:none" ><a asp-area="" asp-page="/User/Index">Quản lí tủ truyện</a></li>
+                                                    <li style="display:none"><a asp-area="" asp-page="/User/Index">Đăng truyện</a></li>
+                                    }
+                         
+                                                @inject IHttpContextAccessor HttpContextAccessor
+                                    else if (HttpContextAccessor.HttpContext.Session.GetString("Accountadmin") == "2" )
+                                    {
+                                                    <li><a asp-area="" asp-page="/ListComic/Index">Quản lí tủ truyện</a></li>
+                                                    <li><a asp-area="" asp-page="/ListComic/Create">Đăng truyện</a></li>
+                                    }
+                                    else if (HttpContextAccessor.HttpContext.Session.GetString("Accountadmin") == "3"){
+                                        
+                                                    <li><a asp-area="" asp-page="/ListComic/Index">Quản lí tủ truyện</a></li>
+                                                    <li><a asp-area="" asp-page="/ListComic/Create">Đăng truyện</a></li>
+
+                                    }
+
+                                    
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header__right">
+                       <a a asp-area="" asp-page="/User/ComicSearch/ComicSearch" class="search-switch"><span class="icon_search"></span></a>
+                       @* <a  asp-page="/User/User_Test"><span class="icon_profile"></span></a>*@
+                        <partial name="_partiviewTest" />
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+   
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="footer" style="padding-bottom: 20px; padding-top:20px;">
+        <div class="page-up">
+            <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p style="text-align:center; color: white">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright TVT Comics - Liên Hệ qua Email:tvt@gmail.com - SDT: 02834578901<script>document.write(new Date().getFullYear());</script>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    <ejs-scripts></ejs-scripts>
+
+</body>
+</html>
+
+
+ 

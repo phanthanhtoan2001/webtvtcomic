@@ -1,0 +1,43 @@
+﻿@page
+@model WebAppComics.Pages.ListAccount.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Image[0].ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image[0].Chapter)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Image) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chapter.ChapterId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ImageId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ImageId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ImageId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

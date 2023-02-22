@@ -1,0 +1,158 @@
+﻿@*@page*@
+@*@using X.PagedList.Mvc.Core
+@using X.PagedList
+@using X.PagedList.Web.Common;
+@*//@using X.PagedList.Mvc.Common;*@
+@page
+@model WebAppComics.Pages.ManageComic.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+    //int sum = 1;
+    
+}
+
+<h2 style="color:white; font-family:'Oswald'">QUẢN LÝ TRUYỆN</h2>
+@*@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page }),
+    new X.PagedList.Web.Common.PagedListRenderOptions
+    {
+        DisplayItemSliceAndTotal = true,
+        ContainerDivClasses = new[] { "navigation" },
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" },
+    })*@
+@await Component.InvokeAsync("NToastNotify");
+@*<p>
+    <a asp-page="Create">Create New</a>
+</p>*@
+<table class="table" style="color: white">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].ComicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].Describe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].ComicBanner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].DateSummitted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].ComicStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].Account.AccountName)
+            </th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Comic) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComicName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Describe)
+            </td>
+            <td>
+              <img src="@item.ComicBanner" width="100" height="100">
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.DateSummitted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComicStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account.AccountName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ComicId">
+                    <p style="border:solid 2px; background-color: forestgreen; border-radius:10%; color: white; text-align:center">Sửa</p>
+                </a>
+                <a asp-page="./Details" asp-route-id="@item.ComicId">
+                    <p style="border:solid 2px; background-color: cornflowerblue; border-radius:10%; color: white; text-align:center">Chi tiết</p>
+                </a>
+                <a asp-page="./Delete" asp-route-id="@item.ComicId">
+                    <p style="border:solid 2px; background-color: firebrick; border-radius:10%; color: white; text-align:center">Xóa</p>
+                </a>
+                   
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@{
+    var prevDisabled = !Model.Comic.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Comic.HasNextPage ? "disabled" : "";
+   // var count = !Model.Comic.GetHashCode() ? "disabled" : "";
+}   
+@*  @foreach(var i in Model.Comic.Pa)*@
+@*<a asp-page="./Index"
+   asp-route-pageIndex="@(Model.Comic.PageIndex - 1)"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-pageIndex="@(Model.Comic.PageIndex + 1)"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>*@
+<a asp-page="./Index"
+   asp-route-pageIndex="@(Model.Comic.PageIndex - 1)"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+
+@for(int i =1; i <=Model.Comic.TotalPages-1; i++)
+{
+   
+    <a asp-page="./Index" asp-route-pageIndex="@(Model.Comic.PageIndex + 1)"
+   class="btn btn-primary @nextDisabled"> @i
+    </a> 
+}
+<a asp-page="./Index"
+   asp-route-pageIndex="@(Model.Comic.PageIndex + 1)"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>
+@*<nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item disabled">
+            <a class="page-link" href="" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>*@
+@*@section Scripts{
+    <script>
+        // Workaround to fix style of text for showing items .. through ..
+        // Problem related to Boostrap 4 according to issue in link below
+        // https://github.com/dncuug/X.PagedList/issues/127
+        $(document).ready(function () {
+            $('ul.pagination > li.disabled > a').addClass('page-link');
+        });
+    </script>
+}*@
+@*//<script src="~/js/PagedList.js"></script>*@
+@*<link rel="stylesheet" href="~/css/style.css">*@
+@await Component.InvokeAsync("NToastNotify");

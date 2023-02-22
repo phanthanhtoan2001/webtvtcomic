@@ -1,0 +1,73 @@
+﻿@page
+@model WebAppComics.Pages.User.SearchModel
+
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Search</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].ComicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].Describe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].ComicBanner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].DateSummitted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].ComicStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comic[0].Account)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Comic) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComicName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Describe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComicBanner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateSummitted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComicStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account.AccountId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ComicId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ComicId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ComicId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

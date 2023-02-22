@@ -1,0 +1,47 @@
+﻿@page
+@model WebAppComics.Pages.ListChapter.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_LayoutUser.cshtml";
+}
+
+
+<h2 style="color:white; font-family:'Oswald'">SỬA CHƯƠNG TRUYỆN</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" style="color: white; width:fit-content">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ChapterBonus.ChapterId" />
+            <div class="form-group">
+                <label asp-for="ChapterBonus.ChapterName" class="control-label"></label>
+                <input asp-for="ChapterBonus.ChapterName" class="form-control" />
+                <span asp-validation-for="ChapterBonus.ChapterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChapterBonus.View" class="control-label"></label>
+                <input asp-for="ChapterBonus.View" class="form-control" />
+                <span asp-validation-for="ChapterBonus.View" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChapterBonus.UpdateDay" class="control-label"></label>
+                <input asp-for="ChapterBonus.UpdateDay" class="form-control" />
+                <span asp-validation-for="ChapterBonus.UpdateDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChapterBonus.ComicId" class="control-label"></label>
+                <span asp-validation-for="ChapterBonus.ComicId" class="text-danger"></span>
+                <span asp-validation-for="ChapterBonus.ComicId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Trở lại</a>
+</div>
+
